@@ -22,6 +22,9 @@ class Player(pygame.sprite.Sprite):
         if pygame.sprite.groupcollide(sprite1, sprite2, False, False) \
                 or pygame.sprite.groupcollide(sprite1, sprite3, False, False):
             return True
+        if pygame.sprite.groupcollide(sprite1, sprite2, False, False) \
+                or pygame.sprite.groupcollide(sprite1, sprite3, False, False):
+            return True
         else:
             self.rect.x += self.speed
             return False
@@ -50,6 +53,14 @@ class Player(pygame.sprite.Sprite):
             self.rect.y += self.speed
             return False
 
-    def reset_position(self):
-        self.rect.x = 40
-        self.rect.y = 300
+    def reset_position(self, room_no):
+        if room_no == 1:
+            self.rect.x = 40
+            self.rect.y = 300
+        if room_no == 2:
+            self.rect.x = 40
+            self.rect.y = 300
+        if room_no == 3:
+            self.rect.x = 40
+            self.rect.y = 40
+

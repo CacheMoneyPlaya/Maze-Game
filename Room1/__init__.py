@@ -2,7 +2,9 @@ import pygame
 from Wall import Wall
 from Maze import Maze
 from Enemy import Enemy
-# from Entrance import Entrance
+from Collectable import Collectable
+from Entrance import Entrance
+from Complete import Complete
 
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
@@ -28,6 +30,12 @@ class Room1(Maze):
 
         enemies = []
 
+        complete = []
+
+        collectables = [[350, 150, 50, 50, YELLOW],
+                        [520, 380, 50, 50, YELLOW],
+                        [40, 320, 50, 50, YELLOW],
+                        [650, 490, 50, 50, YELLOW]]
 
         for item in entrance:
             entrance = Wall(item[0], item[1], item[2], item[3], item[4])
@@ -41,3 +49,10 @@ class Room1(Maze):
             enemy = Enemy(item[0], item[1], item[2], item[3], item[4])
             self.enemy_list.add(enemy)
 
+        for item in collectables:
+            collectable = Collectable(item[0], item[1], item[2], item[3], item[4])
+            self.collectable_list.add(collectable)
+
+        for item in complete:
+            exit = Complete(item[0], item[1], item[2], item[3], item[4])
+            self.exit_list.add(exit)
